@@ -44,8 +44,8 @@ import org.supla.android.ChannelDetailTempHumidity;
 import org.supla.android.ChannelDetailTemperature;
 import org.supla.android.ChannelDetailThermostat;
 import org.supla.android.ChannelDetailThermostatHP;
+import org.supla.android.ChannelDetailOnOff;
 import org.supla.android.R;
-import org.supla.android.Trace;
 import org.supla.android.db.Channel;
 import org.supla.android.db.ChannelBase;
 import org.supla.android.db.ChannelGroup;
@@ -145,7 +145,9 @@ public class ChannelListView extends ListView {
                                 mDetailLayout = null;
                             }
                         } else {
-                            mDetailLayout = null;
+                            if (!(mDetailLayout instanceof ChannelDetailOnOff)) {
+                                mDetailLayout = null;
+                            }
                         }
                     }
                     break;
@@ -223,6 +225,8 @@ public class ChannelListView extends ListView {
                         } else if (channel.getValue().getSubValueType()
                                 == SuplaChannelValue.SUBV_TYPE_ELECTRICITY_MEASUREMENTS) {
                             mDetailLayout = new ChannelDetailEM(getContext(), this);
+                        } else {
+                            mDetailLayout = new ChannelDetailOnOff(getContext(), this);
                         }
                     }
                     break;

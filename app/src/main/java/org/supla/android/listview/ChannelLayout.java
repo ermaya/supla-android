@@ -706,15 +706,7 @@ public class ChannelLayout extends LinearLayout implements View.OnLongClickListe
 
                     lenabled = true;
                     renabled = true;
-
-                    if (cbase instanceof Channel && ((Channel)cbase).getValue() != null) {
-                        if (((Channel)cbase).getValue().getSubValueType()
-                                == SuplaChannelValue.SUBV_TYPE_ELECTRICITY_MEASUREMENTS
-                                || ((Channel)cbase).getValue().getSubValueType()
-                                == SuplaChannelValue.SUBV_TYPE_IC_MEASUREMENTS ) {
-                            dslider = true;
-                        }
-                    }
+                    dslider = true;
 
                     break;
                 case SuplaConst.SUPLA_CHANNELFNC_VALVE_OPENCLOSE:
