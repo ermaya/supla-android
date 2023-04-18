@@ -18,6 +18,7 @@ syays GNU General Public License for more details.
  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+import android.Manifest;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.SuppressLint;
@@ -34,6 +35,9 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentManager;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -89,6 +93,17 @@ public class MainActivity extends NavigationActivity
 
   // Used in reordering. The initial position of taken item is saved here.
   private Integer dragInitialPosition;
+
+  // [START ask_post_notifications]
+  // Declare the launcher at the top of your Activity/Fragment:
+  private final ActivityResultLauncher<String> requestPermissionLauncher =
+      registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
+        if (isGranted) {
+          // FCM SDK (and your app) can post notifications.
+        } else {
+          // TODO: Inform user that that your app will not show notifications.
+        }
+      });
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {

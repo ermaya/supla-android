@@ -5,6 +5,7 @@ plugins {
     kotlin("kapt")
     id("androidx.navigation.safeargs.kotlin")
     id("dagger.hilt.android.plugin")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -114,7 +115,8 @@ dependencies {
     implementation(Deps.Androidx.Worker)
     implementation(Deps.Androidx.RecyclerView)
     implementation(Deps.Hilt.Hilt)
-    kapt(Deps.Hilt.Kapt)
+    implementation("com.google.firebase:firebase-messaging:23.0.2")
+  kapt(Deps.Hilt.Kapt)
 
     testImplementation(Deps.Testing.Androidx.Core)
     testImplementation(Deps.Testing.Androidx.Runner)

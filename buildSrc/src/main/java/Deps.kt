@@ -5,6 +5,7 @@ object Deps {
     const val AndroidChart = "com.github.PhilJay:MPAndroidChart:${Versions.AndroidChart}"
     const val Coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.Coroutines}"
     const val GoogleMaterial = "com.google.android.material:material:${Versions.GoogleMaterial}"
+    const val GoogleServices = "com.google.gms:google-services:${Versions.GoogleServices}"
 
     const val KotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.Kotlin}"
     const val AndroidBuildTools = "com.android.tools.build:gradle:7.4.2"

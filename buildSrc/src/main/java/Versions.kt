@@ -11,6 +11,7 @@ object Versions {
     const val AndroidChart = "v3.0.3"
     const val Coroutines = "1.6.4"
     const val GoogleMaterial = "1.0.0"
+    const val GoogleServices = "4.3.15"
 
     const val Spotless = "6.10.0"
     const val KtLint = "0.46.1"
